@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/user-components.iml" filepath="$PROJECT_DIR$/.idea/user-components.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HebrewWordle-FrontEnd.iml" filepath="$PROJECT_DIR$/.idea/HebrewWordle-FrontEnd.iml" />
     </modules>
   </component>
 </project>
