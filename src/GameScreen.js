@@ -33,7 +33,7 @@ function GameScreen(){
         setPlay(true);
     }
     const update = () => {
-        axios.get("http://localhost:8989/guess-and-result",
+        axios.get("https://hebrew-wordle.herokuapp.com/guess-and-result",
             {
                 params:{
                     userGuess: userGuess
@@ -48,7 +48,7 @@ function GameScreen(){
         <div>
             <h3>:הכנס את הניחוש שלך</h3>
             <HStack>
-                <PinInput placeholder='' size='xs' type='alphanumeric' value={userGuess} onChange={(e) => {
+                <PinInput onComplete={update} placeholder='' size='xs' type='alphanumeric' value={userGuess} onChange={(e) => {
                     setUserGuess(e);
                 }}>
                     <PinInputField style={{width: "20px", height: "20px"}} />

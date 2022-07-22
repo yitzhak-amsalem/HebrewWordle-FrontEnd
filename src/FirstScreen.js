@@ -7,7 +7,7 @@ function FirstScreen(){
     const [word, setWord] = useState("");
     const navigate = useNavigate();
     const onPlay = () => {
-        axios.get("http://localhost:8989/set-word",
+        axios.get("https://hebrew-wordle.herokuapp.com/set-word",
             {
                 params:{
                     userWord: word
