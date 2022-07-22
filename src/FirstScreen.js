@@ -30,7 +30,6 @@ function FirstScreen(){
                     <PinInputField style={{width: "20px", height: "20px"}} />
                 </PinInput>
             </HStack>
-            <input value={word}/>
             <br/>
             <button disabled={word === ''} onClick={onPlay}>שחק!</button>
         </div>

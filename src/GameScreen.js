@@ -62,8 +62,7 @@ function GameScreen(){
             <button disabled={userGuess === ''} onClick={update}>Update</button>
             <button disabled={userGuess === ''} onClick={updateResult}>Guess!</button>
             <br/>
-            <input value={result} />
-            <br/>
+
             {
                 play &&
                 resultVision.map((row, i) =>{
