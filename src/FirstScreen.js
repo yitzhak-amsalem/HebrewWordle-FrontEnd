@@ -17,7 +17,7 @@ function FirstScreen(){
         navigate('/gameScreen');
     }
     return(
-        <div>
+        <div style={{margin: "10px"}}>
             <h3>:הכנס מילה</h3>
             <HStack>
                 <PinInput placeholder='' size='xs' type='alphanumeric' value={word} onChange={(e) => {

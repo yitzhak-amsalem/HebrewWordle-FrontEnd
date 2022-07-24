@@ -42,16 +42,21 @@ function GameScreen(){
             const resultString = res.data.resultString;
             setResult(resultString);
         });
+        console.log(userGuess);
+
     }
 
     return(
-        <div>
+        <div style={{margin: "10px"}}>
             <h3>:הכנס את הניחוש שלך</h3>
             <HStack>
-                <PinInput onComplete={update} placeholder='' size='xs' type='alphanumeric' value={userGuess} onChange={(e) => {
-                    setUserGuess(e);
-                }}>
-                    <PinInputField style={{width: "20px", height: "20px"}} />
+                <PinInput onComplete={update}
+                          placeholder='' size='xs' type='alphanumeric'
+                          value={userGuess}
+                          onChange={(e) => {
+                            setUserGuess(e);
+                          }}>
+                    <PinInputField style={{width: "20px", height: "20px" ,margin: "3px"}} />
                     <PinInputField style={{width: "20px", height: "20px"}} />
                     <PinInputField style={{width: "20px", height: "20px"}} />
                     <PinInputField style={{width: "20px", height: "20px"}} />
@@ -59,7 +64,7 @@ function GameScreen(){
 
                 </PinInput>
             </HStack>
-            <button disabled={userGuess === ''} onClick={update}>Update</button>
+            <button style={{margin: "3px"}} disabled={userGuess === ''} onClick={update}>Update</button>
             <button disabled={userGuess === ''} onClick={updateResult}>Guess!</button>
             <br/>
 
@@ -71,7 +76,7 @@ function GameScreen(){
                         <PinInput placeholder='' size='xs' type='alphanumeric' defaultValue={guesses[i]}>
                             {row.map(res => {
                             return(
-                                <PinInputField style={{width: "20px", height: "20px", borderColor: res.Color, borderTopColor: res.Color}}/>
+                                <PinInputField style={{width: "20px", height: "20px", borderColor: res.Color, borderTopColor: res.Color ,margin: "3px"}}/>
                             )
                         })}
                         </PinInput>
