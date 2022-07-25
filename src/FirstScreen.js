@@ -7,7 +7,7 @@ function FirstScreen(){
     const [word, setWord] = useState("");
     const navigate = useNavigate();
     const onPlay = () => {
-        axios.get("https://hebrew-wordle.herokuapp.com/set-word",
+        axios.get("https://hebrew-wordle.herokuapp.com/set-word" ,
             {
                 params:{
                     userWord: word
@@ -31,7 +31,7 @@ function FirstScreen(){
                 </PinInput>
             </HStack>
             <br/>
-            <button disabled={word === ''} onClick={onPlay}>שחק!</button>
+            <button disabled={word === ''} onClick={onPlay}>!שחק</button>
         </div>
         )
 }
