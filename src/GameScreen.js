@@ -32,7 +32,7 @@ function GameScreen(){
         setGuesses(state => [...state, userGuess]);
 
         setUserGuess("");
-        setPlay(true);
+        setPlay(isWin);
         setOnGuess(true);
     }
     const update = () => {
@@ -48,9 +48,7 @@ function GameScreen(){
             setIsWin(isWinner);
         });
         setOnGuess(false);
-
     }
-
     return(
         <div style={{textAlign: "center"}}>
             <h5>:הכנס את הניחוש שלך</h5>
@@ -67,18 +65,14 @@ function GameScreen(){
 
                 </PinInput>
             <br/>
-
             {
                 onGuess?
                     <button class={"button update-button"} disabled={userGuess.length < 5} onClick={update}>Update</button>
                     :
                     <button class={"button guess-button"} onClick={updateResult}>Guess!</button>
             }
-
             <br/>
-
             {
-                play &&
                 resultVision.map((row, i) =>{
                     return(
                         <div>
@@ -94,18 +88,10 @@ function GameScreen(){
                 })
             }
             {
-                isWin &&
+                play &&
                 <h3 style={{margin: "5px"}}>!ברכות! ניצחת</h3>
             }
-
-
-
-
         </div>
-
     )
-
-
-
 }
 export default GameScreen;
