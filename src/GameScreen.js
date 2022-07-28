@@ -57,11 +57,11 @@ function GameScreen(){
                           onChange={(e) => {
                             setUserGuess(e);
                           }}>
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
 
                 </PinInput>
             <br/>

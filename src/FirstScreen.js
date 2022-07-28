@@ -22,11 +22,11 @@ function FirstScreen(){
                 <PinInput placeholder='' size='xs' type='alphanumeric' value={word} onChange={(e) => {
                     setWord(e);
                 }} >
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
                 </PinInput>
             <br/><br/>
             <button class={"button play-button"} disabled={word.length < 5} onClick={onPlay}>!שחק</button>
