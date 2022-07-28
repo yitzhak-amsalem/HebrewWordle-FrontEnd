@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import {HStack, PinInput, PinInputField} from '@chakra-ui/react'
+import {PinInput, PinInputField} from '@chakra-ui/react'
 
 
 function GameScreen(){
@@ -52,24 +52,29 @@ function GameScreen(){
     }
 
     return(
-        <div style={{margin: "10px"}}>
-            <h3>:הכנס את הניחוש שלך</h3>
-            <HStack>
+        <div style={{textAlign: "center"}}>
+            <h5>:הכנס את הניחוש שלך</h5>
                 <PinInput placeholder='' size='xs' type='alphanumeric'
                           value={userGuess}
                           onChange={(e) => {
                             setUserGuess(e);
                           }}>
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
 
                 </PinInput>
-            </HStack>
-            <button style={{margin: "3px"}} disabled={userGuess.length < 5} onClick={update}>Update</button>
-            <button disabled={onGuess} onClick={updateResult}>Guess!</button>
+            <br/>
+
+            {
+                onGuess?
+                    <button class={"button update-button"} disabled={userGuess.length < 5} onClick={update}>Update</button>
+                    :
+                    <button class={"button guess-button"} onClick={updateResult}>Guess!</button>
+            }
+
             <br/>
 
             {
@@ -80,7 +85,7 @@ function GameScreen(){
                         <PinInput placeholder='' size='xs' type='alphanumeric' defaultValue={guesses[i]}>
                             {row.map(res => {
                             return(
-                                <PinInputField style={{width: "20px", height: "20px", border: "2px solid " + res.color ,margin: "3px"}}/>
+                                <PinInputField style={{width: "20px", height: "20px", border: "2px solid " + res.color ,margin: "3px", textAlign: "center"}}/>
                             )
                         })}
                         </PinInput>
@@ -92,6 +97,7 @@ function GameScreen(){
                 isWin &&
                 <h3 style={{margin: "5px"}}>!ברכות! ניצחת</h3>
             }
+
 
 
 

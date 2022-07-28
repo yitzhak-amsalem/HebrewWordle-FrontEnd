@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {HStack, PinInput, PinInputField} from '@chakra-ui/react'
+import {PinInput, PinInputField} from '@chakra-ui/react'
+import "./buttons.css"
 
 function FirstScreen(){
     const [word, setWord] = useState("");
@@ -12,26 +13,23 @@ function FirstScreen(){
                 params:{
                     userWord: word
                 }
-            }).then((res) => {
-        });
+            });
         navigate('/gameScreen');
     }
     return(
-        <div style={{margin: "10px"}}>
-            <h3>:הכנס מילה</h3>
-            <HStack>
+        <div style={{textAlign: "center"}}>
+            <h5>:הכנס מילה</h5>
                 <PinInput placeholder='' size='xs' type='alphanumeric' value={word} onChange={(e) => {
                     setWord(e);
                 }} >
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
-                    <PinInputField style={{width: "20px", height: "20px"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
+                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center"}} />
                 </PinInput>
-            </HStack>
-            <br/>
-            <button disabled={word === ''} onClick={onPlay}>!שחק</button>
+            <br/><br/>
+            <button class={"button play-button"} disabled={word.length < 5} onClick={onPlay}>!שחק</button>
         </div>
         )
 }

@@ -1,12 +1,10 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route, Link, NavLink} from "react-router-dom";
-
-import UsersComponent from "./UsersComponent";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import FirstScreen from "./FirstScreen";
 import GameScreen from "./GameScreen";
 function App() {
   return (
-    <div className="App" style={{margin: "10px"}}>
+    <div className="App" style={{textAlign: "center", padding: "20px"}}>
         <Router>
             <div>
                 <h2>Hebrew Wordle</h2>
