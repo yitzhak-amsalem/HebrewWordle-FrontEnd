@@ -14,11 +14,11 @@
 .play-button {
     background-color: white;
     color: black;
-    border: 2px solid #008CBA;
+    border: 2px solid #E85F3FFF;
 }
 
 .play-button:hover {
-    background-color: #008CBA;
+    background-color: #E85F3FFF;
     color: white;
 }
 .update-button {

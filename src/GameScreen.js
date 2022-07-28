@@ -24,7 +24,7 @@ function GameScreen(){
                 vision.push(y);
 
             } else if (result[i] === "-") {
-                const b = {color: "Black"}
+                const b = {color: "#777474"}
                 vision.push(b);
             }
         }
@@ -79,7 +79,7 @@ function GameScreen(){
                         <PinInput placeholder='' size='xs' type='alphanumeric' defaultValue={guesses[i]}>
                             {row.map(res => {
                             return(
-                                <PinInputField style={{width: "20px", height: "20px", border: "2px solid " + res.color ,margin: "3px", textAlign: "center"}}/>
+                                <PinInputField style={{width: "20px", height: "20px", border: "2px solid " + res.color, backgroundColor: res.color ,margin: "3px", textAlign: "center"}}/>
                             )
                         })}
                         </PinInput>
