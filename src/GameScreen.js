@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import {PinInput, PinInputField} from '@chakra-ui/react'
+import {PinInput, PinInputField} from '@chakra-ui/react';
 
 
 function GameScreen(){
@@ -13,7 +13,6 @@ function GameScreen(){
     const [onGuess, setOnGuess] = useState(true);
 
     const updateResult = () => {
-
         let vision = [];
         for (let i = 0; i < result.length; i++) {
             if (result[i] === "*") {
@@ -50,26 +49,27 @@ function GameScreen(){
         setOnGuess(false);
     }
     return(
-        <div style={{textAlign: "center"}}>
-            <h5>:הכנס את הניחוש שלך</h5>
+        <div style={{textAlign: "center", direction: "rtl"}}>
+            <h4>הכנס את הניחוש שלך:</h4>
                 <PinInput placeholder='' size='xs' type='alphanumeric'
                           value={userGuess}
                           onChange={(e) => {
                             setUserGuess(e);
                           }}>
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
-                    <PinInputField style={{width: "20px", height: "20px", textAlign: "center", margin: "3px"}} />
+
+                    <PinInputField style={{fontWeight: "bold", width: "40px", height: "40px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{fontWeight: "bold", width: "40px", height: "40px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{fontWeight: "bold", width: "40px", height: "40px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{fontWeight: "bold", width: "40px", height: "40px", textAlign: "center", margin: "3px"}} />
+                    <PinInputField style={{fontWeight: "bold", width: "40px", height: "40px", textAlign: "center", margin: "3px"}} />
 
                 </PinInput>
             <br/>
             {
                 onGuess?
-                    <button class={"button update-button"} disabled={userGuess.length < 5} onClick={update}>Update</button>
+                    <button class={"button update-button"} disabled={userGuess.length < 5} onClick={update}>עדכן</button>
                     :
-                    <button class={"button guess-button"} onClick={updateResult}>Guess!</button>
+                    <button class={"button guess-button"} onClick={updateResult}>נחש!</button>
             }
             <br/>
             {
@@ -79,7 +79,7 @@ function GameScreen(){
                         <PinInput placeholder='' size='xs' type='alphanumeric' defaultValue={guesses[i]}>
                             {row.map(res => {
                             return(
-                                <PinInputField style={{width: "20px", height: "20px", border: "2px solid " + res.color, backgroundColor: res.color ,margin: "3px", textAlign: "center"}}/>
+                                <PinInputField style={{fontWeight: "bold", width: "40px", height: "40px", border: "2px solid " + res.color, backgroundColor: res.color ,margin: "3px", textAlign: "center"}}/>
                             )
                         })}
                         </PinInput>
@@ -89,7 +89,14 @@ function GameScreen(){
             }
             {
                 play &&
-                <h3 style={{margin: "5px"}}>!ברכות! ניצחת</h3>
+                <div>
+                    {
+                        guesses.length < 6 ?
+                            <h2 style={{margin: "5px"}}>ברכות! ניצחת!</h2>
+                            :
+                            <h2 style={{margin: "5px"}}>יפה, אבל לקח לך זמן...</h2>
+                    }
+                </div>
             }
         </div>
     )
