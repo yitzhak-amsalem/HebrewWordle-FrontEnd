@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {PinInput, PinInputField} from '@chakra-ui/react';
 
@@ -10,9 +10,10 @@ function GameScreen(){
     const [isWin, setIsWin] = useState(false);
     const [userGuess, setUserGuess] = useState("");
     const [play, setPlay] = useState(false);
-    const [onGuess, setOnGuess] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const updateResult = () => {
+    useEffect(() => {
+        setIsLoading(false);
         let vision = [];
         for (let i = 0; i < result.length; i++) {
             if (result[i] === "*") {
@@ -32,9 +33,11 @@ function GameScreen(){
 
         setUserGuess("");
         setPlay(isWin);
-        setOnGuess(true);
-    }
-    const update = () => {
+
+    }, [result]);
+    const onGuess = () => {
+        setIsLoading(true);
+
         axios.get("https://hebrew-wordle.herokuapp.com/guess-and-result",
             {
                 params:{
@@ -46,7 +49,6 @@ function GameScreen(){
             setResult(resultString);
             setIsWin(isWinner);
         });
-        setOnGuess(false);
     }
     return(
         <div style={{textAlign: "center", direction: "rtl"}}>
@@ -66,17 +68,17 @@ function GameScreen(){
                 </PinInput>
             <br/>
             {
-                onGuess?
-                    <button class={"button update-button"} disabled={userGuess.length < 5} onClick={update}>עדכן</button>
+                isLoading ?
+                    <div>Loading...</div>
                     :
-                    <button class={"button guess-button"} onClick={updateResult}>נחש!</button>
+                    <button class={"button update-button"} disabled={userGuess.length < 5} onClick={onGuess}>נחש!</button>
             }
             <br/>
             {
                 resultVision.map((row, i) =>{
                     return(
                         <div>
-                        <PinInput placeholder='' size='xs' type='alphanumeric' defaultValue={guesses[i]}>
+                        <PinInput placeholder='' size='xs' type='alphanumeric' defaultValue={guesses[i]} value={guesses[i]} >
                             {row.map(res => {
                             return(
                                 <PinInputField style={{fontWeight: "bold", width: "40px", height: "40px", border: "2px solid " + res.color, backgroundColor: res.color ,margin: "3px", textAlign: "center"}}/>

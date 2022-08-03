@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {PinInput, PinInputField} from '@chakra-ui/react'
-import "./buttons.css"
+import {PinInput, PinInputField} from '@chakra-ui/react';
+import "./buttons.css";
 
 function FirstScreen(){
     const [word, setWord] = useState("");
